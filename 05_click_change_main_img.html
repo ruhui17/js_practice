@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: auto;
+            width: 95%;
+            max-width: 1140px;
+        }
+        .img-fluid{
+            width: 100%;
+        }
+        .main-img{
+            margin-bottom: 10px;
+        }
+        .thumbnails{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .thumbnails>img{
+            width: 100px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+        .thumbnails>img.activ{
+            border: 2px solid orange;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-img"><img class="img-fluid" src="images/animals01.jpg" alt=""></div>
+        <p id="product-description">Sleeping Fox</p>
+        <div class="thumbnails">
+            <img class="active" src="images/animals02.jpg" alt="Other animals 1">
+            <img  class="" src="images/animals03.jpg" alt="Other animals 2">
+            <img  class="" src="images/animals04.jpg" alt="Other animals 3">
+            <img  class="" src="images/animals05.jpg" alt="Other animals 4">
+            <img  class="" src="images/animals03.jpg" alt="Other animals 5">
+            <img  class="" src="images/animals04.jpg" alt="Other animals 6">
+            <img  class="" src="images/animals05.jpg" alt="Other animals 7">
+            <img  class="" src="images/animals01.jpg" alt="Sleeping Fox">
+        </div>
+    </div>
+
+    <!--jquery主程式-->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        $('.thumbnails>img').on('click', function(e){
+            //console.log(e.target) console測試
+            // 主圖src屬性(attribute) 替換成 當前點擊縮圖的src
+            $('.main-img>img').attr('src', $(this).attr('src'))
+            $('#product-description').text( $(this).attr('alt') )
+            // html():包含標籤  text():純文字 val():表單值
+            // 當前點擊縮圖套用active
+            $(this).addClass('active')
+            // 當前點擊縮圖以外的縮圖移除active
+            $(this).siblings().removeClass('active')
+
+        }) // .thumbnails>img end
+
+        console.log($(window).width())
+        if( $(window).width > 768 ){
+
+        }else{
+
+
+        }
+    </script>
+</body>
+</html>
