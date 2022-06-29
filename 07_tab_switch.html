@@ -18,7 +18,11 @@
             color:rgb(255, 255, 255);
             text-align: center;
             display: block;
-            background-color: rgb(38, 110, 79);
+            background-color: rgb(57, 101, 82);
+            border-radius: 20px 20px 0px 0px;
+        }
+        .tab-link>a.active{
+            background-color: rgb(143, 198, 156);
         }
         .tab-content{
             display: none;
@@ -44,6 +48,13 @@
      <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 
      <script>
+        $('.tab-link>a').on('click',function(){
+            $(this).addClass('active')
+            $(this).siblings().removeClass('active')
+            console.log($(this).attr('href'))
+            $($(this).attr('href')).addClass('active')
+            $($(this).attr('href')).siblings().removeClass('active')
+        })//.tab-link>a end
 
      </script>
 </body>
